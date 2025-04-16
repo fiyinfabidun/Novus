@@ -37,7 +37,7 @@ export default function AuthButton() {
         <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white">
           {user.name?.firstname?.charAt(0).toUpperCase() || user.username?.charAt(0).toUpperCase() || 'U'}
         </div>
-        <span className="hidden md:block text-sm font-medium text-black capitalize">
+        <span className="hidden md:block text-sm font-medium text-white capitalize">
           {user.name?.firstname || user.username || 'User'}
         </span>
       </motion.button>

@@ -3,17 +3,12 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <div className="bg-white py-15">
+    <div className="bg-white">
       <main>
         {/* Hero section */}
-        <div className="relative">
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
-          <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
-              <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-700"></div>
-              </div>
-              <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+        
+        <div className='h-screen flex justify-center items-center flex-col text-center her'>
+        <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
                 <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                   <span className="block text-white">Welcome to Novus Store</span>
                   <span className="block text-indigo-200">Shop the latest products</span>
@@ -38,10 +33,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
         </div>
-
         {/* Logo/Features section */}
         <div className="bg-gray-100 py-16 sm:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

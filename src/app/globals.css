@@ -30,7 +30,7 @@ body {
   background-position: center;
   background-size: cover;
 }
-/* .gridbg{
+.gridbg{
   background-image:
    url('/assets/images/orange.png');
   background-position: center;
@@ -41,4 +41,4 @@ body {
    url('/assets/images/red.png');
   background-position: center;
   background-size: cover;
-} */
+}

@@ -26,19 +26,19 @@ body {
 .her {
   background-image:
   linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-   url('/assets/images/char.jpg');
+   url('/assets/images/char.png');
   background-position: center;
   background-size: cover;
 }
 .gridbg{
   background-image:
-   url('/assets/images/orange.jpg');
+   url('/assets/images/orange.png');
   background-position: center;
   background-size: cover;
 }
 .gridbgr{
   background-image:
-   url('/assets/images/red.jpg');
+   url('/assets/images/red.png');
   background-position: center;
   background-size: cover;
 }

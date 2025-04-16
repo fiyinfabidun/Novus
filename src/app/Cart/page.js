@@ -11,6 +11,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import LoadingSpinner from '@/components/layout/LoadingSpinner';
 import ErrorMessage from '@/components/layout/ErrorMessage';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
+import Link from 'next/link';
 
 // Checkout Modal Component
 const CheckoutModal = ({ isOpen, onClose, onGoHome }) => {
@@ -363,9 +364,9 @@ function CartPageContent() {
               <div className="mt-6 flex justify-center text-sm text-center text-gray-500">
                 <p>
                   or{' '}
-                  <a href="/products" className="text-indigo-600 font-medium hover:text-indigo-500">
+                  <Link href="/products" className="text-indigo-600 font-medium hover:text-indigo-500">
                     Continue Shopping<span aria-hidden="true"> &rarr;</span>
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>

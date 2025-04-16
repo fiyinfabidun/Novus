@@ -36,6 +36,8 @@ npm run dev
 - Username: `mor_2314`
 - Password: `83r5^_`
 
+details for login is also indicated on the login page
+
 ## Project Structure
 
 ```

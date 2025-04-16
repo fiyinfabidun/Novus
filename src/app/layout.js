@@ -8,7 +8,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'E-Commerce Interface',
+  title: 'NOVUS',
   description: 'E-commerce interface with authentication, cart, and product management',
 };
 

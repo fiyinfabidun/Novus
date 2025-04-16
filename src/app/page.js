@@ -1,14 +1,28 @@
 'use client'
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <div className="bg-white">
       <main>
-        {/* Hero section with animations */}
-        <div className='h-screen flex justify-center items-center flex-col text-center her'>
-          <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+        {/* Hero section with animations and background image */}
+        <div className='h-screen flex justify-center items-center flex-col text-center her bgdiv relative'>
+          {/* Background image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/char.png" // Path to your hero image in public folder
+              alt="Hero background"
+              fill
+              priority
+              className="object-cover"
+            />
+            {/* Optional overlay for better text visibility */}
+            <div className="absolute inset-0 bg-black/40"></div>
+          </div>
+          
+          <div className="relative z-10 px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
             <motion.h1 
               className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
               initial={{ opacity: 0, y: 20 }}
@@ -59,7 +73,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Rest of the content remains the same */}
         <div className='grid grid-col-1 lg:grid-cols-2'>
             <div className='flex space-y-6 flex-col text-gray-900 p-10'>
               <motion.h2 
@@ -94,7 +107,15 @@ export default function Home() {
                 </Link>
               </motion.div>
             </div>
-            <div className='gridbgr p-20'></div>
+            <div className='gridbgr p-20 bgdiv relative'>
+              {/* Second background image */}
+              <Image
+                src="/images/red.png" // Path to product background image
+                alt="Product background"
+                fill
+                className="object-cover"
+              />
+            </div>
         </div>
 
         {/* Logo/Features section */}
@@ -194,7 +215,15 @@ export default function Home() {
         </div>
 
         <div className='grid grid-col-1 lg:grid-cols-2'>
-            <div className='gridbg p-20'></div>
+            <div className='gridbg p-20 bgdiv relative'>
+              {/* Third background image */}
+              <Image
+                src="/images/orange.png" // Path to lifestyle background image
+                alt="Lifestyle background"
+                fill
+                className="object-cover"
+              />
+            </div>
             <div className='flex space-y-6 flex-col text-gray-900 p-10'>
               <motion.h2 
                 className='text-4xl font-extrabold'

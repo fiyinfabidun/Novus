@@ -36,4 +36,9 @@ body {
   background-position: center;
   background-size: cover;
 }
-
+.gridbgr{
+  background-image:
+   url('/assets/images/red.jpg');
+  background-position: center;
+  background-size: cover;
+}

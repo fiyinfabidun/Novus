@@ -108,6 +108,23 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <div className='grid grid-col-1 lg:grid-cols-2'>
+            <div className='gridbg p-20 '>
+
+            </div>
+            <div className='flex space-y-6 flex-col text-gray-900 p-10'>
+              <h2 className=' text-3xl font-extrabold'>Introducing Best Quality Items</h2>
+              <p className='text-gray-500 lg:w-3/4'> Step into your style era. At NOVUS, we believe fashion is more than fabric — it’s a statement, a story, a lifestyle. From timeless classics to bold new drops, every piece in our collection is curated to elevate your everyday look. Dress like you mean it.</p>
+              <Link
+                      href="/products"
+                      className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-400 sm:px-8 w-fit"
+                    >
+                      Browse Products
+                    </Link>
+              
+            </div>
+        </div>
       </main>
     </div>
   );

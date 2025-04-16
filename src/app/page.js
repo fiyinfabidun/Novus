@@ -12,7 +12,7 @@ export default function Home() {
           {/* Background image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/char.png" // Path to your hero image in public folder
+              src="/assets/images/char.png"
               alt="Hero background"
               fill
               priority

@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import { productService } from '@/services/productService';
 import BreadcrumbTrail from '@/components/layout/BreadCrumbTrail';
@@ -11,7 +12,6 @@ import PageHeader from '@/components/layout/PageHeader';
 import LoadingSpinner from '@/components/layout/LoadingSpinner';
 import ErrorMessage from '@/components/layout/ErrorMessage';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
-import Link from 'next/link';
 
 // Checkout Modal Component
 const CheckoutModal = ({ isOpen, onClose, onGoHome }) => {
@@ -108,7 +108,6 @@ function CartPageContent() {
     error: cartError,
     updateQuantity,
     removeFromCart,
-    clearCart,
     refreshCart
   } = useCart();
   const [products, setProducts] = useState({});
@@ -175,8 +174,14 @@ function CartPageContent() {
       // Simulate API call to process order
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Use the clearCart method to empty the cart in one operation
-      await clearCart();
+      // Clear the cart (You would need to implement this in CartContext)
+      // This would require a new clearCart method in your CartContext
+      for (const item of cart.products) {
+        await removeFromCart(item.productId);
+      }
+      
+      // Refresh cart after clearing
+      await refreshCart();
       
       // Show success modal
       setIsCheckoutModalOpen(true);
@@ -242,9 +247,9 @@ function CartPageContent() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               <p className="mt-4 text-lg text-gray-600">Your cart is empty</p>
-              <a href="/products" className="mt-6 inline-block px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
+              <Link href="/products" className="mt-6 inline-block px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
                 Continue Shopping
-              </a>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -296,7 +301,6 @@ function CartPageContent() {
                           className="px-2 py-1 text-gray-600 hover:text-gray-800"
                           whileTap={{ scale: 0.9 }}
                           disabled={item.quantity <= 1}
-                          aria-label="Decrease quantity"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
@@ -307,7 +311,6 @@ function CartPageContent() {
                           onClick={() => handleQuantityChange(item.productId, item.quantity + 1)}
                           className="px-2 py-1 text-gray-600 hover:text-gray-800"
                           whileTap={{ scale: 0.9 }}
-                          aria-label="Increase quantity"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -324,7 +327,6 @@ function CartPageContent() {
                           className="mt-1 text-xs text-red-500 hover:text-red-700"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          aria-label={`Remove ${product.title} from cart`}
                         >
                           Remove
                         </motion.button>
@@ -346,11 +348,10 @@ function CartPageContent() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   disabled={isProcessingOrder}
-                  aria-label="Proceed to checkout"
                 >
                   {isProcessingOrder ? (
                     <>
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
